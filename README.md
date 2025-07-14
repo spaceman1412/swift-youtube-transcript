@@ -17,6 +17,14 @@ Heavily inspired by [youtube-transcript](https://github.com/Kakulukian/youtube-t
 
 ## Usage
 
+Library using one simple function to fetch transcript
+
+```swift
+fetchTranscript(for videoId: String,config: TranscriptConfig = .init()) async throws -> [TranscriptResponse]
+```
+
+Example:
+
 ```swift
 import YoutubeTranscript
 
@@ -82,7 +90,7 @@ And add `YoutubeTranscript` as a dependency for your target:
 
 ```swift
 .target(
-    name: "YourTarget",
+    name: "<target>",
     dependencies: [
         .product(name: "YoutubeTranscript", package: "swift-youtube-transcript")
     ]
