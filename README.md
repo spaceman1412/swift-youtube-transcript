@@ -1,6 +1,11 @@
 # YoutubeTranscript
 
-A Swift library for fetching YouTube video transcripts (captions) programmatically. Supports both standard YouTube videos and Shorts, with robust error handling and async/await support.
+I tried to find a library that fetches YouTube video transcripts for Swift but couldn’t find one, so I made one myself.
+
+This package uses an unofficial YouTube API, so it may break over time if no updates are made.
+The library uses an HTML scraper and the Innertube API to fetch transcripts.
+
+Heavily inspired by [youtube-transcript](https://github.com/Kakulukian/youtube-transcript)
 
 ## Features
 
@@ -9,25 +14,6 @@ A Swift library for fetching YouTube video transcripts (captions) programmatical
 - Handles all major YouTube transcript error cases
 - Async/await API for modern Swift concurrency
 - Comprehensive unit tests using Swift Testing
-
-## Installation
-
-Add this package to your `Package.swift` dependencies:
-
-```swift
-.package(url: "https://github.com/yourusername/swift-youtube-transcript.git", from: "1.0.0")
-```
-
-And add `YoutubeTranscript` as a dependency for your target:
-
-```swift
-.target(
-    name: "YourTarget",
-    dependencies: [
-        .product(name: "YoutubeTranscript", package: "swift-youtube-transcript")
-    ]
-)
-```
 
 ## Usage
 
@@ -53,7 +39,15 @@ let config = TranscriptConfig(lang: "en")
 let transcript = try await YoutubeTranscript.fetchTranscript(for: "YOUR_VIDEO_ID", config: config)
 ```
 
-## Error Handling
+### Supported URL Formats
+
+- Standard videos: `https://www.youtube.com/watch?v=VIDEO_ID`
+- Short URLs: `https://youtu.be/VIDEO_ID`
+- YouTube Shorts: `https://www.youtube.com/shorts/VIDEO_ID`
+- Embedded videos: `https://www.youtube.com/embed/VIDEO_ID`
+- Direct video IDs: `VIDEO_ID`
+
+### Error Handling
 
 The library throws `YoutubeTranscriptError` for all error cases:
 
@@ -66,6 +60,41 @@ The library throws `YoutubeTranscriptError` for all error cases:
 - `.invalidVideoId`: The video ID is invalid
 - `.networkError`: Network error occurred
 - `.parsingError`: Failed to parse YouTube response
+
+## Minimum requirements
+
+- macOS 12.0+
+- iOS 15.0+
+- tvOS 15.0+
+- watchOS 8.0+
+
+## Installation
+
+### Adding YoutubeTranscript to a Swift package
+
+Add this package to your `Package.swift` dependencies:
+
+```swift
+.package(url: "https://github.com/spaceman1412/swift-youtube-transcript.git", from: "1.0.0")
+```
+
+And add `YoutubeTranscript` as a dependency for your target:
+
+```swift
+.target(
+    name: "YourTarget",
+    dependencies: [
+        .product(name: "YoutubeTranscript", package: "swift-youtube-transcript")
+    ]
+)
+```
+
+### Adding YoutubeTranscript to an Xcode project
+
+1. From the **File** menu, select **Add Packages…**
+1. Enter `https://github.com/spaceman1412/swift-youtube-transcript` into the
+   _Search or Enter Package URL_ search field
+1. Link **YoutubeTranscript** to your application target
 
 ## Testing
 
