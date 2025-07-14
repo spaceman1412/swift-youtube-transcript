@@ -7,6 +7,21 @@ The library uses an HTML scraper and the Innertube API to fetch transcripts.
 
 Heavily inspired by [youtube-transcript](https://github.com/Kakulukian/youtube-transcript)
 
+## Table of Contents
+
+- [Features](#features)
+- [Usage](#usage)
+  - [Example](#example)
+  - [Fetching in a Specific Language](#fetching-in-a-specific-language)
+  - [Supported URL Formats](#supported-url-formats)
+  - [Error Handling](#error-handling)
+- [Minimum requirements](#minimum-requirements)
+- [Installation](#installation)
+  - [Adding YoutubeTranscript to a Swift package](#adding-youtubetranscript-to-a-swift-package)
+  - [Adding YoutubeTranscript to an Xcode project](#adding-youtubetranscript-to-an-xcode-project)
+- [Testing](#testing)
+- [License](#license)
+
 ## Features
 
 - Fetches transcripts for YouTube videos and Shorts
