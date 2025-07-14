@@ -23,7 +23,7 @@ Library using one simple function to fetch transcript
 fetchTranscript(for videoId: String,config: TranscriptConfig = .init()) async throws -> [TranscriptResponse]
 ```
 
-Example:
+### Example
 
 ```swift
 import YoutubeTranscript
